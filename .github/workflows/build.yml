@@ -63,8 +63,10 @@ jobs:
           node-version: 'latest'
 
       - name: Build dependencies
-        run: source ./buildenv.sh ${{ matrix.target }}
-
+        run: |
+          source ./buildenv.sh ${{ matrix.target }}
+          ./scripts/build_dependencies.sh
+          
       - name: Download stock firmwares
         run: |
           source ./buildenv.sh ${{ matrix.target }}
